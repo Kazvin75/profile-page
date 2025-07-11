@@ -1,0 +1,361 @@
+/* Universal */
+@font-face {
+    font-family: 'Aptos';
+    src: url(../font/Aptos.ttf);
+}
+* {
+    font-family: 'Aptos', Arial, Helvetica, sans-serif;
+}
+::selection {
+    color: black;
+    background-color: white;
+}
+:root {
+    --color-1: hsl(212, 78%, 65%);
+    --color-2: hsl(212, 78%, 75%);
+    --color-3: hsl(212, 78%, 85%);
+}
+/* Body */
+html {
+    background-color: hsl(240, 100%, 10%);
+    overflow-y: auto;
+}
+.block {
+    margin: 0 2vw;
+}
+/* Scroll Bar */
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: hsl(240, 100%, 20%);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-1);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-2);
+}
+::-webkit-scrollbar-thumb:active {
+    background: var(--color-3);
+}
+/* Custom Colors */
+.is-color1 {
+    background-color: var(--color-1);
+    color: black;
+}
+.is-color2 {
+    background-color: var(--color-2);
+    color: black;
+}
+.is-color3 {
+    background-color: var(--color-3);
+    color: black;
+}
+.is-color4 {
+    background-color: hsl(240, 100%, 7%);
+    color: black;
+}
+/* Tags */
+.tags {
+    width: fit-content;
+    margin: 0 auto;
+}
+.js-modal-trigger, .link {
+    transition: transform 0.2s ease;
+}
+.js-modal-trigger:hover, .link:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.js-modal-trigger:active, .link:active {
+    transform: scale(0.9);
+}
+/* Icons */
+span.tag-content {
+    margin-left: 5px;
+}
+i {
+    font-size: 24px;
+}
+/* Table */
+table {
+    margin: 0 auto;
+}
+table, tr, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+th, td {
+    color: white !important;
+    width: 60px;
+}
+/* List */
+.custom-list {
+    list-style: disc;
+    margin-left: 20px;
+}
+/* Modal */
+.modal-content {
+    width: 90%;
+    max-width: 700px;
+}
+@media screen and (min-width: 1050px) {
+    .modal-content {
+        width: 60%;
+        max-width: 800px;
+    }
+}
+/* Message */
+.message-header, .message-body {
+    font-size: 16px;
+}
+.message-body {
+    color: white;
+}
+@media screen and (min-width: 769px) {
+    .message-header, .message-body {
+        font-size: 20px;
+    }
+}
+.message-header p, .message-body p {
+    text-align: center;
+    margin: 0 auto;
+}
+/* Image inside message */
+.message-body img {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+/* Paragraph inside block */
+#contact-form p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.navbar, .navbar-menu, .navbar-start, .navbar-end {
+    background-color: var(--color-1);
+}
+a.navbar-item:hover, .navbar-burger:hover {
+    background-color: var(--color-2);
+}
+a.navbar-item:active, .navbar-burger:active {
+    background-color: var(--color-3);
+}
+/* Navbar Item */
+.navbar-item {
+    text-align: center;
+}
+p.navbar-item {
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 0 13px 0 17px;
+}
+.navbar-item-icons {
+    position: relative;
+    top: 6px;
+    margin-right: 10px;
+}
+.navbar-item-icons i {
+    font-size: 40px;
+}
+.navbar-item-text {
+    color: black;
+    display: inline;
+    font-size: 24px;
+}
+@media screen and (max-height: 600px) and (max-width: 1023px) {
+    .navbar-item-icons i {
+        font-size: 30px;
+    }
+    .navbar-item-text {
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .navbar-item {
+        padding: 0 13px 0 17px;
+    }
+    .navbar-item-icons {
+        position: static;
+    }
+    .socials-icons {
+        padding-left: 8px;
+    }
+    .socials-text, .navbar-burger {
+        display: none;
+    }
+}
+/* Navbar Brand */
+.navbar-brand img {
+    height: 80px;
+    padding: 0px;
+    margin: 10px 0;
+    border-radius: 100%;
+    border: 1px solid var(--color-3);
+}
+.navbar-brand img:hover {
+    animation: 1s hover-anim-img linear infinite;
+    cursor: not-allowed;
+}
+@keyframes hover-anim-img {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.navbar-brand p:hover {
+    animation: 1s hover-anim-p linear infinite;
+    cursor: not-allowed;
+}
+@keyframes hover-anim-p {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.hamburger {
+    color: black;
+}
+/* Contact Form */
+form {
+    margin-top: var(--bulma-column-gap) !important;
+}
+.input, select, .textarea {
+    font-family: 'Aptos', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black !important;
+    background-color: var(--color-1) !important;
+    text-align: center;
+}
+.input:hover, select:hover, .textarea:hover {
+    background-color: var(--color-2) !important;
+}
+#submit:hover {
+    cursor: pointer;
+}
+.input:focus, select:focus, .textarea:focus {
+    background-color: var(--color-3) !important;
+}
+.input, select {
+    text-align: center;
+}
+.label {
+    text-align: center;
+    font-size: 24px;
+}
+.select select {
+    font-size: 18px;
+    color: black;
+    width: 100vh;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: black;
+}
+.textarea {
+    height: 383px;
+}
+/* Intro */
+#intro {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 500px;
+    width: 50%;
+}
+#intro img {
+    width: 120px;
+    border-radius: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 25px;
+}
+#intro #header {
+    color: white;
+    font-size: 72px;
+    font-weight: 700;
+    text-align: center;
+}
+#intro .intro-text {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 30px;
+}
+#intro .field {
+    margin-top: 30px;
+}
+#intro .tags {
+    margin: 10px !important;
+}
+@media screen and (max-width: 530px) {
+    #intro {
+        min-width: 50px;
+        width: 90%;
+    }
+    #intro #header {
+        font-size: 54px;
+    }
+    #intro .intro-text {
+        font-size: 18px;
+    }
+}
+/* Notification */
+.notification {
+    position: fixed;
+    padding-right: 50px;
+    bottom: 0px;
+    right: 30px;
+    z-index: 10;
+    font-size: 20px;
+    font-weight: 600;
+    width: 250px;
+    display: none;
+}
+@media screen and (min-width: 600px) {
+    .notification {
+        width: 500px;
+    }
+}
+#gaming-geometry-dash .tags {
+    margin: 10px !important;
+}
+#gaming-geometry-dash .title {
+    margin-bottom: 10px;
+}
