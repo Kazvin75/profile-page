@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateNavbarSpacing() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    console.log(`${vw} ${vh}`);
     let spacing;
     if (vw > 1023) {
         spacing = Math.round(0.1353 * vw - 137.07);
@@ -84,3 +83,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// Get Geometry Dash Statistics
+function fetchGDStats(profile, device) {
+    const fields = [
+        'stars', 'moons', 'secret-coins', 'user-coins', 'total-demon', 'global-rank',
+        'classic-auto', 'classic-easy', 'classic-normal', 'classic-hard', 'classic-harder', 'classic-insane', 'classic-daily', 'gauntlet',
+        'classic-easy-demon', 'classic-medium-demon', 'classic-hard-demon', 'classic-insane-demon', 'classic-extreme-demon',
+        'weekly-demon', 'gauntlet-demon',
+        'platformer-auto', 'platformer-easy', 'platformer-normal', 'platformer-hard', 'platformer-harder', 'platformer-insane', 'platformer-daily',
+        'platformer-easy-demon', 'platformer-medium-demon', 'platformer-hard-demon', 'platformer-insane-demon', 'platformer-extreme-demon'
+    ];
+    fields.forEach(idSuffix => {
+        const el = document.getElementById(`gd-${device}-${idSuffix}`);
+        if (el) el.textContent = '?';
+    });
+    document.getElementById(`gd-${device}-stats-date`).textContent = 'Getting statistics...';
+    fetch(`https://gdbrowser.com/api/profile/${profile}`)
+        .then(response => response.json())
+        .then(data => {
+            const now = new Date();
+            const formattedDateTime = `${now.toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            })}\n(${now.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            })})`;
+            const statsFields = {
+                'stars': data.stars,
+                'moons': data.moons,
+                'secret-coins': data.coins,
+                'user-coins': data.userCoins,
+                'total-demon': data.demons,
+                'global-rank': data.rank,
+                'classic-auto': data.classicLevelsCompleted.auto,
+                'classic-easy': data.classicLevelsCompleted.easy,
+                'classic-normal': data.classicLevelsCompleted.normal,
+                'classic-hard': data.classicLevelsCompleted.hard,
+                'classic-harder': data.classicLevelsCompleted.harder,
+                'classic-insane': data.classicLevelsCompleted.insane,
+                'classic-daily': data.classicLevelsCompleted.daily,
+                'gauntlet': data.classicLevelsCompleted.gauntlet,
+                'classic-easy-demon': data.classicDemonsCompleted.easy,
+                'classic-medium-demon': data.classicDemonsCompleted.medium,
+                'classic-hard-demon': data.classicDemonsCompleted.hard,
+                'classic-insane-demon': data.classicDemonsCompleted.insane,
+                'classic-extreme-demon': data.classicDemonsCompleted.extreme,
+                'weekly-demon': data.classicDemonsCompleted.weekly,
+                'gauntlet-demon': data.classicDemonsCompleted.gauntlet,
+                'platformer-auto': data.platformerLevelsCompleted.auto,
+                'platformer-easy': data.platformerLevelsCompleted.easy,
+                'platformer-normal': data.platformerLevelsCompleted.normal,
+                'platformer-hard': data.platformerLevelsCompleted.hard,
+                'platformer-harder': data.platformerLevelsCompleted.harder,
+                'platformer-insane': data.platformerLevelsCompleted.insane,
+                'platformer-daily': data.platformerLevelsCompleted.daily,
+                'platformer-easy-demon': data.platformerDemonsCompleted.easy,
+                'platformer-medium-demon': data.platformerDemonsCompleted.medium,
+                'platformer-hard-demon': data.platformerDemonsCompleted.hard,
+                'platformer-insane-demon': data.platformerDemonsCompleted.insane,
+                'platformer-extreme-demon': data.platformerDemonsCompleted.extreme
+            };
+            for (const [idSuffix, value] of Object.entries(statsFields)) {
+                const field = document.getElementById(`gd-${device}-${idSuffix}`);
+                if (field) {
+                    field.textContent = typeof value === 'number' ? value.toLocaleString() : value;
+                }
+            }
+            document.getElementById(`gd-${device}-stats-date`).innerHTML = `Last updated: ${formattedDateTime}`;
+        })
+        .catch(error => console.error('Error:', error));
+}

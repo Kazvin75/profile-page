@@ -27,19 +27,19 @@
             <div class="navbar-spacing"></div>
             <div id="globalNavbar" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="index.html">
+                    <a class="navbar-item" href="/">
                         <span class="icon has-text-black navbar-item-icons">
                             <i class="mdi mdi-home"></i>
                         </span>
                         <span class="navbar-item-text">Home</span>
                     </a>
-                    <a class="navbar-item" href="about-me.html">
+                    <a class="navbar-item" href="/about-me">
                         <span class="icon has-text-black navbar-item-icons">
                             <i class="mdi mdi-information-box"></i>
                         </span>
                         <span class="navbar-item-text">About Me</span>
                     </a>
-                    <a class="navbar-item" href="contact-form.php">
+                    <a class="navbar-item" href="/contact-form">
                         <span class="icon has-text-black navbar-item-icons">
                             <i class="mdi mdi-account-box"></i>
                         </span>
@@ -2427,9 +2427,9 @@
                                 <br>
                                 <!-- Statistics (Mobile) -->
                                 <p class="title is-size-3-mobile is-size-2-tablet has-text-centered">Statistics (Mobile)</p>
-                                <p>Last updated: July 10, 2025</p>
+                                <p id="gd-mobile-stats-date">Last updated: July 10, 2025 (4:50 PM)</p>
                                 <div class="field is-grouped is-grouped-multiline is-justify-content-center">
-                                    <div class="link tags has-addons">
+                                    <div class="link tags has-addons" onclick="fetchGDStats('Kuzzar', 'mobile')">
                                         <span class="tag is-size-5-mobile is-size-4-tablet is-color1">
                                             <span class="icon has-text-black">
                                                 <i class="mdi mdi-refresh"></i>
@@ -2822,9 +2822,9 @@
                                 <br>
                                 <!-- Statistics (PC) -->
                                 <p class="title is-size-3-mobile is-size-2-tablet has-text-centered">Statistics (PC)</p>
-                                <p>Last updated: July 10, 2025</p>
+                                <p id="gd-pc-stats-date">Last updated: July 10, 2025 (4:50 PM)</p>
                                 <div class="field is-grouped is-grouped-multiline is-justify-content-center">
-                                    <div class="link tags has-addons">
+                                    <div class="link tags has-addons" onclick="fetchGDStats('CtrlCube', 'pc')">
                                         <span class="tag is-size-5-mobile is-size-4-tablet is-color1">
                                             <span class="icon has-text-black">
                                                 <i class="mdi mdi-refresh"></i>

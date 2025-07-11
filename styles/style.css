@@ -252,7 +252,7 @@ p.navbar-item {
 }
 /* Contact Form */
 form {
-    margin-top: var(--bulma-column-gap) !important;
+    margin-top: 20px !important;
 }
 .input, select, .textarea {
     font-family: 'Aptos', Arial, Helvetica, sans-serif;
